@@ -23,7 +23,7 @@ export function EServices() {
               <a href="#contact" className="group block">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
                   <Image
-                    src={s.image}
+                    src={s.imageE}
                     alt={s.name}
                     fill
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"

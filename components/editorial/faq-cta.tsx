@@ -14,7 +14,7 @@ export function EFaq() {
       <div className="container-x max-w-4xl">
         <Reveal className="text-center">
           <p className="eyebrow flex items-baseline justify-center gap-3 text-charcoal/45">
-            <span className="font-serif text-base italic text-walnut">08</span>
+            <span className="font-serif text-base italic text-walnut">09</span>
             — Questions, answered
           </p>
           <h2 className="mt-5 font-serif text-4xl leading-tight text-charcoal sm:text-5xl">

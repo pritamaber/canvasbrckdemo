@@ -28,15 +28,15 @@ export function ELegacy() {
             <div className="absolute -bottom-4 -right-4 h-full w-full bg-sand" />
             <div className="relative aspect-[4/5] overflow-hidden">
               <Image
-                src={legacy.image}
-                alt={legacy.imageCaption}
+                src={legacy.imageE}
+                alt={legacy.imageCaptionE}
                 fill
                 sizes="(min-width: 1024px) 30vw, 90vw"
                 className="object-cover"
               />
             </div>
             <p className="relative mt-4 text-xs tracking-wide text-charcoal/45">
-              {legacy.imageCaption}
+              {legacy.imageCaptionE}
             </p>
           </Reveal>
         </div>

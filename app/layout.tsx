@@ -32,9 +32,9 @@ export const metadata: Metadata = {
     locale: "en_IN",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop",
-        width: 1600,
-        height: 900,
+        url: "/assets/cinematic/living-gold-1.jpg",
+        width: 1920,
+        height: 1080,
         alt: "Canvas & Brick — luxury interiors",
       },
     ],

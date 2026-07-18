@@ -61,7 +61,7 @@ export function EProjects() {
                   className={`relative overflow-hidden rounded-sm ${p.aspect}`}
                 >
                   <Image
-                    src={p.image}
+                    src={p.imageE}
                     alt={`${p.name} — ${p.location}`}
                     fill
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"

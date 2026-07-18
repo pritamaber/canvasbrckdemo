@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
@@ -7,6 +8,8 @@ import { Counter, EASE, LineReveal, Parallax } from "@/components/motion";
 import { heroEditorial, stats } from "@/lib/content";
 
 export function EHero() {
+  const [videoFailed, setVideoFailed] = useState(false);
+
   return (
     <section className="pt-[4.5rem]">
       <div className="container-x pb-16 pt-12 sm:pt-16">
@@ -70,7 +73,7 @@ export function EHero() {
           </motion.div>
         </div>
 
-        {/* hero image */}
+        {/* hero film */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -85,14 +88,28 @@ export function EHero() {
                 transition={{ duration: 2.2, ease: EASE }}
                 className="relative h-full w-full"
               >
-                <Image
-                  src={heroEditorial.image}
-                  alt={heroEditorial.caption}
-                  fill
-                  priority
-                  sizes="100vw"
-                  className="scale-110 object-cover"
-                />
+                {videoFailed ? (
+                  <Image
+                    src={heroEditorial.poster}
+                    alt={heroEditorial.caption}
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="scale-110 object-cover"
+                  />
+                ) : (
+                  <video
+                    className="absolute inset-0 h-full w-full scale-110 object-cover"
+                    src={heroEditorial.video}
+                    poster={heroEditorial.poster}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                    onError={() => setVideoFailed(true)}
+                  />
+                )}
               </motion.div>
             </Parallax>
           </div>

@@ -4,6 +4,7 @@ import {
   CalendarCheck,
   CookingPot,
   Factory,
+  Flame,
   Gem,
   Hammer,
   HardHat,
@@ -15,10 +16,14 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-/* ————— image helper (curated Unsplash placeholders, all verified) ————— */
+/* ————— image helpers ————————————————————————————————————————
+   All media is local, from real Indian studios:
+   · /assets/cinematic  — The KariGhars project renders & brand film
+   · /assets/editorial  — Floorsy (Kolkata) renders, walkthrough films & team
+—————————————————————————————————————————————————————————— */
 
-export const img = (id: string, w = 1600) =>
-  `https://images.unsplash.com/photo-${id}?q=80&w=${w}&auto=format&fit=crop`;
+export const cin = (f: string) => `/assets/cinematic/${f}`;
+export const edi = (f: string) => `/assets/editorial/${f}`;
 
 /* ————————————————————————— studio ————————————————————————— */
 
@@ -42,7 +47,7 @@ export const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Projects", href: "#projects" },
   { label: "Craft", href: "#craft" },
-  { label: "Process", href: "#process" },
+  { label: "Estimate", href: "#estimate" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -59,9 +64,8 @@ export const heroCinematic = {
   eyebrow: "Est. 1974 — Rajarhat, Kolkata",
   titleLines: ["Where timeless craftsmanship", "meets modern living."],
   sub: "Five decades of timber heritage, refined into one of Eastern India’s most considered interior design studios. We design, manufacture and deliver — under one roof, under one promise.",
-  video:
-    "https://videos.pexels.com/video-files/7578544/7578544-hd_1920_1080_30fps.mp4",
-  poster: img("1600607687939-ce8a6c25118c", 2000),
+  video: cin("hero.mp4"),
+  poster: cin("hero-poster.jpg"),
 };
 
 export const heroEditorial = {
@@ -71,14 +75,16 @@ export const heroEditorial = {
   titleB: "that feel like",
   titleItalic: "home.",
   sub: "Turnkey interiors, custom furniture and renovation for people who notice the details. Designed in Rajarhat, built in our own workshop, delivered on the date we put in writing.",
-  image: img("1600585154340-be6161a56a0c", 2200),
-  caption: "The Ivory Residence, Ballygunge — completed 2025",
+  video: edi("hero.mp4"),
+  poster: edi("hero-poster.jpg"),
+  caption: "Walk-through — The Ivory Residence, Ballygunge · completed 2025",
 };
 
 export const marqueeItems = [
   "Turnkey Interiors",
   "Custom Furniture",
   "Modular Kitchens",
+  "Pooja Units",
   "Residential",
   "Commercial",
   "Renovation",
@@ -92,8 +98,10 @@ export const legacy = {
   heading: "Fifty years in the making.",
   intro:
     "Canvas & Brick is the modern evolution of Mozammel Haque Timbers — a family business that has supplied, shaped and finished wood in Rajarhat since 1974. Three generations later, the same hands-on standards guide a full interior design studio.",
-  image: img("1416879595882-3373a0480b5b", 1400),
-  imageCaption: "The workshop, where every project still begins",
+  image: cin("buddha-foyer.jpg"),
+  imageCaption: "Hand-set jali, brass and seasoned veneer — finished in our own workshop",
+  imageE: edi("team.jpg"),
+  imageCaptionE: "The Canvas & Brick studio family — three generations in",
   timeline: [
     {
       year: "1974",
@@ -138,12 +146,12 @@ export const whyItems: {
   {
     icon: Gem,
     title: "Materials, chosen by hand",
-    body: "Seasoned timber, honest veneers, stone we have stood in front of. We specify exactly what goes into your home — and show you.",
+    body: "Seasoned sheesham and teak, honest veneers, marble we have stood in front of. We specify exactly what goes into your home — and show you.",
   },
   {
     icon: ReceiptText,
     title: "Transparent pricing",
-    body: "Line-item estimates before you commit. No shifting numbers mid-project, no surprises at handover.",
+    body: "Line-item estimates in rupees before you commit. No shifting numbers mid-project, no surprises at handover.",
   },
   {
     icon: Users,
@@ -153,7 +161,7 @@ export const whyItems: {
   {
     icon: CalendarCheck,
     title: "Dates we put in writing",
-    body: "Because design, manufacturing and execution sit under one roof, our timelines are ours to keep — and we keep them.",
+    body: "Because design, manufacturing and execution sit under one roof, our timelines are ours to keep — even in festive season, we hand over before Diwali, not after.",
   },
 ];
 
@@ -164,6 +172,7 @@ export const services: {
   name: string;
   blurb: string;
   image: string;
+  imageE: string;
   comingSoon?: boolean;
 }[] = [
   {
@@ -171,49 +180,64 @@ export const services: {
     name: "Turnkey Interiors",
     blurb:
       "Design to handover, one contract. We carry your home through drawings, manufacturing, site work and styling.",
-    image: img("1600607687939-ce8a6c25118c", 1200),
+    image: cin("living-gold-1.jpg"),
+    imageE: edi("living-warm.jpg"),
   },
   {
     icon: Sofa,
     name: "Residential Interiors",
     blurb:
       "Apartments, duplexes and family homes — designed around how you actually live, not around a catalogue.",
-    image: img("1522708323590-d24dbb6b0267", 1200),
+    image: cin("living-gold-4.jpg"),
+    imageE: edi("bhk/2-1.jpg"),
   },
   {
     icon: Building2,
     name: "Commercial Interiors",
     blurb:
       "Offices, clinics and boutiques that work as hard as you do — planned for flow, acoustics and brand.",
-    image: img("1497366754035-f200968a6e72", 1200),
+    image: cin("living-dark.jpg"),
+    imageE: edi("bhk/4-1.jpg"),
   },
   {
     icon: CookingPot,
     name: "Modular Kitchens",
     blurb:
-      "Manufactured in-house to millimetre tolerances. Hardware, stone and finishes selected to be used daily for decades.",
-    image: img("1556909114-f6e7ad7d3136", 1200),
+      "Manufactured in-house to millimetre tolerances. Stone, hardware and finishes chosen for real Indian cooking — daily, for decades.",
+    image: cin("kitchen-film.jpg"),
+    imageE: edi("kitchen-dark.jpg"),
   },
   {
     icon: Armchair,
     name: "Custom Furniture",
     blurb:
       "One-off pieces from our own workshop — the craft that started this family in 1974, refined for fifty years.",
-    image: img("1586023492125-27b2c045efd7", 1200),
+    image: cin("bedroom-wood.jpg"),
+    imageE: edi("bhk/2-2.jpg"),
+  },
+  {
+    icon: Flame,
+    name: "Pooja & Mandir Units",
+    blurb:
+      "Carved jali, marble and warm brass — quiet corners for prayer, designed with vastu in mind and built to be handed down.",
+    image: cin("marble-console.jpg"),
+    imageE: edi("bhk/3-5.jpg"),
   },
   {
     icon: Hammer,
     name: "Renovation",
     blurb:
       "Considered transformations of lived-in homes — structure respected, character kept, everything else elevated.",
-    image: img("1600566753086-00f18fb6b3ea", 1200),
+    image: cin("foyer-mirror.jpg"),
+    imageE: edi("bhk/2-5.jpg"),
   },
   {
     icon: HardHat,
     name: "Construction",
     blurb:
       "Ground-up construction with the same single-roof accountability. Launching soon.",
-    image: img("1512917774080-9991f1c4c750", 1200),
+    image: cin("balcony-pool.jpg"),
+    imageE: edi("bhk/4-3.jpg"),
     comingSoon: true,
   },
 ];
@@ -227,6 +251,7 @@ export type Project = {
   year: string;
   scope: string;
   image: string;
+  imageE: string;
   aspect: string; // tailwind aspect class for masonry rhythm
 };
 
@@ -247,7 +272,8 @@ export const projects: Project[] = [
     category: "Residential",
     year: "2025",
     scope: "4 BHK · 3,200 sq ft · turnkey",
-    image: img("1600585154340-be6161a56a0c", 1600),
+    image: cin("living-gold-1.jpg"),
+    imageE: edi("bhk/3-1.jpg"),
     aspect: "aspect-[4/3]",
   },
   {
@@ -256,7 +282,8 @@ export const projects: Project[] = [
     category: "Residential",
     year: "2024",
     scope: "Duplex · 4,100 sq ft · turnkey",
-    image: img("1600607687939-ce8a6c25118c", 1600),
+    image: cin("atrium.jpg"),
+    imageE: edi("bhk/3-2.jpg"),
     aspect: "aspect-[3/4]",
   },
   {
@@ -265,7 +292,8 @@ export const projects: Project[] = [
     category: "Renovation",
     year: "2025",
     scope: "3 BHK · full renovation",
-    image: img("1600566753086-00f18fb6b3ea", 1600),
+    image: cin("living-tall-1.jpg"),
+    imageE: edi("bhk/2-1.jpg"),
     aspect: "aspect-[4/3]",
   },
   {
@@ -274,7 +302,8 @@ export const projects: Project[] = [
     category: "Commercial",
     year: "2024",
     scope: "Design office · 5,600 sq ft",
-    image: img("1497366754035-f200968a6e72", 1600),
+    image: cin("living-dark.jpg"),
+    imageE: edi("bhk/4-1.jpg"),
     aspect: "aspect-[3/4]",
   },
   {
@@ -283,7 +312,8 @@ export const projects: Project[] = [
     category: "Commercial",
     year: "2023",
     scope: "Boutique workspace · 2,800 sq ft",
-    image: img("1604014237800-1c9102c219da", 1600),
+    image: cin("foyer-mirror.jpg"),
+    imageE: edi("bhk/4-4.jpg"),
     aspect: "aspect-[4/3]",
   },
   {
@@ -292,7 +322,8 @@ export const projects: Project[] = [
     category: "Kitchen",
     year: "2025",
     scope: "L-shaped modular · quartz & teak",
-    image: img("1556909114-f6e7ad7d3136", 1600),
+    image: cin("kitchen-film.jpg"),
+    imageE: edi("kitchen-dark.jpg"),
     aspect: "aspect-[3/4]",
   },
   {
@@ -301,7 +332,8 @@ export const projects: Project[] = [
     category: "Kitchen",
     year: "2024",
     scope: "Island kitchen · fluted oak",
-    image: img("1556911220-bff31c812dba", 1600),
+    image: cin("kitchen-film.jpg"),
+    imageE: edi("kitchen-white.jpg"),
     aspect: "aspect-[4/3]",
   },
   {
@@ -310,7 +342,8 @@ export const projects: Project[] = [
     category: "Furniture",
     year: "2025",
     scope: "Limited series · seasoned teak",
-    image: img("1586023492125-27b2c045efd7", 1600),
+    image: cin("living-square.jpg"),
+    imageE: edi("bhk/2-2.jpg"),
     aspect: "aspect-[1/1]",
   },
   {
@@ -319,7 +352,8 @@ export const projects: Project[] = [
     category: "Renovation",
     year: "2023",
     scope: "Primary suite · restoration",
-    image: img("1567016432779-094069958ea5", 1600),
+    image: cin("bedroom-wood.jpg"),
+    imageE: edi("bhk/3-4.jpg"),
     aspect: "aspect-[4/3]",
   },
   {
@@ -328,7 +362,8 @@ export const projects: Project[] = [
     category: "Luxury Villas",
     year: "2025",
     scope: "Weekend villa · 7,400 sq ft",
-    image: img("1613490493576-7fde63acd811", 1600),
+    image: cin("balcony-pool.jpg"),
+    imageE: edi("living-warm.jpg"),
     aspect: "aspect-[4/3]",
   },
   {
@@ -337,7 +372,8 @@ export const projects: Project[] = [
     category: "Luxury Villas",
     year: "2024",
     scope: "Courtyard villa · 5,900 sq ft",
-    image: img("1512917774080-9991f1c4c750", 1600),
+    image: cin("terrace-night.jpg"),
+    imageE: edi("history-room.jpg"),
     aspect: "aspect-[3/4]",
   },
   {
@@ -346,7 +382,8 @@ export const projects: Project[] = [
     category: "Furniture",
     year: "2024",
     scope: "Library wall · hand joinery",
-    image: img("1493809842364-78817add7ffb", 1600),
+    image: cin("buddha-foyer.jpg"),
+    imageE: edi("bhk/4-5.jpg"),
     aspect: "aspect-[3/4]",
   },
 ];
@@ -361,37 +398,47 @@ export const craft = {
   quote:
     "“We still select every plank the way my grandfather did — by hand, in daylight.”",
   quoteAttribution: "— The third generation, Canvas & Brick",
-  bandImage: img("1504148455328-c376907d081c", 2200),
+  bandImage: cin("jali-partition.jpg"),
+  filmE: edi("craft.mp4"),
+  filmPosterE: edi("craft-poster.jpg"),
+  filmCaptionE:
+    "Inside a Canvas & Brick handover — kitchen to wardrobe, thirty seconds",
   materials: [
     {
-      name: "Seasoned timber & veneers",
+      name: "Seasoned sheesham & teak",
       note: "Kiln-dried, hand-graded, matched for grain",
-      image: img("1416879595882-3373a0480b5b", 1000),
+      image: cin("bedroom-wood.jpg"),
+      imageE: edi("bhk/3-2.jpg"),
     },
     {
-      name: "Stone & marble",
+      name: "Marble & Kota stone",
       note: "Slabs chosen in person, never from photographs",
-      image: img("1600566752355-35792bedcfea", 1000),
+      image: cin("marble-console.jpg"),
+      imageE: edi("bhk/4-4.jpg"),
     },
     {
-      name: "Brass & hardware",
-      note: "Soft-close, solid-metal fittings rated for decades",
-      image: img("1583847268964-b28dc8f51f92", 1000),
+      name: "Brass, jali & inlay",
+      note: "Cut, pierced and polished the unhurried way",
+      image: cin("jali-partition.jpg"),
+      imageE: edi("living-teal.jpg"),
     },
     {
       name: "Precision joinery",
       note: "Workshop-cut joints, assembled without shortcuts",
-      image: img("1504148455328-c376907d081c", 1000),
+      image: cin("foyer-mirror.jpg"),
+      imageE: edi("bhk/2-2.jpg"),
     },
     {
-      name: "Light as a material",
-      note: "Layered warm light, planned at drawing stage",
-      image: img("1513694203232-719a280e022f", 1000),
+      name: "Light, layered for festivals",
+      note: "Cove, brass and candlelight — planned at drawing stage",
+      image: cin("atrium.jpg"),
+      imageE: edi("bhk/4-3.jpg"),
     },
     {
       name: "Honest finishes",
       note: "Low-VOC polishes that age gracefully",
-      image: img("1616486338812-3dadae4b4ace", 1000),
+      image: cin("living-gold-2.jpg"),
+      imageE: edi("bhk/3-1.jpg"),
     },
   ],
 };
@@ -465,7 +512,7 @@ export const testimonials = [
 export const faqs = [
   {
     q: "What budget range do you work in?",
-    a: "Our projects typically range from ₹10 lakh for focused scopes to ₹2 crore for complete villas. After the first consultation you receive a line-item estimate, so you always know where every rupee goes before you commit.",
+    a: "Our projects typically range from ₹10 lakh for focused scopes to ₹2 crore for complete villas. After the first consultation you receive a line-item estimate, so you always know where every rupee goes before you commit. The estimate tool on this page gives you an honest starting range in two minutes.",
   },
   {
     q: "How long does a full home take?",
@@ -494,9 +541,16 @@ export const faqs = [
 export const cta = {
   heading: "Let’s design something timeless.",
   sub: "Book a free consultation at our Rajarhat studio — or we’ll come to you. Bring your floor plan, your Pinterest board, or nothing at all.",
-  image: img("1600596542815-ffad4c1539a9", 2200),
+  image: cin("terrace-night.jpg"),
   primary: "Book a free consultation",
   secondary: "Call the studio",
+};
+
+/* ————————————————————————— selector ————————————————————————— */
+
+export const selectorImages = {
+  cinematic: cin("living-dark.jpg"),
+  editorial: edi("living-warm.jpg"),
 };
 
 /* ————————————————————————— footer ————————————————————————— */
@@ -506,13 +560,14 @@ export const footerLinks = {
     { label: "Legacy", href: "#legacy" },
     { label: "Projects", href: "#projects" },
     { label: "Craftsmanship", href: "#craft" },
-    { label: "Process", href: "#process" },
+    { label: "Estimate", href: "#estimate" },
     { label: "FAQ", href: "#faq" },
   ],
   services: [
     "Turnkey Interiors",
     "Residential & Commercial",
     "Modular Kitchens",
+    "Pooja & Mandir Units",
     "Custom Furniture",
     "Renovation",
   ],

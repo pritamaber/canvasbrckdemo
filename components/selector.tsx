@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { EASE } from "@/components/motion";
-import { img } from "@/lib/content";
+import { selectorImages } from "@/lib/content";
 
 const directions = [
   {
@@ -13,7 +13,7 @@ const directions = [
     number: "Direction 01",
     name: "The Cinematic",
     desc: "Full-bleed film, deep charcoal, brass light. An immersive, gallery-paced experience.",
-    image: img("1613490493576-7fde63acd811", 1800),
+    image: selectorImages.cinematic,
     dark: true,
   },
   {
@@ -21,7 +21,7 @@ const directions = [
     number: "Direction 02",
     name: "The Editorial",
     desc: "Warm ivory, magazine grids, quiet typography. Calm, architectural, image-led.",
-    image: img("1600585154340-be6161a56a0c", 1800),
+    image: selectorImages.editorial,
     dark: false,
   },
 ];

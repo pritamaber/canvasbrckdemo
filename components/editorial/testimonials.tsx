@@ -17,7 +17,7 @@ export function ETestimonials() {
       <div className="container-x max-w-5xl text-center">
         <Reveal>
           <p className="eyebrow flex items-baseline justify-center gap-3 text-charcoal/45">
-            <span className="font-serif text-base italic text-walnut">07</span>
+            <span className="font-serif text-base italic text-walnut">08</span>
             — Client words
           </p>
         </Reveal>

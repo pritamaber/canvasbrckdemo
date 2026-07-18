@@ -7,6 +7,7 @@ import { CServices } from "@/components/cinematic/services";
 import { CProjects } from "@/components/cinematic/projects";
 import { CCraft } from "@/components/cinematic/craft";
 import { CProcess } from "@/components/cinematic/process";
+import { CBudget } from "@/components/cinematic/budget";
 import { CTestimonials } from "@/components/cinematic/testimonials";
 import { CFaq, CCta } from "@/components/cinematic/faq-cta";
 import { SiteFooter } from "@/components/site-footer";
@@ -29,6 +30,7 @@ export default function CinematicPage() {
       <CProjects />
       <CCraft />
       <CProcess />
+      <CBudget />
       <CTestimonials />
       <CFaq />
       <CCta />
