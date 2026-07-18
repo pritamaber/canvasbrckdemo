@@ -25,14 +25,14 @@ export default function EditorialPage() {
     <main className="bg-ivory font-sans text-charcoal">
       <ENav />
       <EHero />
+      <EServices />
       <ELegacy />
       <EWhy />
-      <EServices />
+      <ETestimonials />
+      <EBudget />
       <EProjects />
       <ECraft />
       <EProcess />
-      <EBudget />
-      <ETestimonials />
       <EFaq />
       <ECta />
       <SiteFooter />

@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { galleryCategories } from "@/lib/gallery";
 
 export const metadata: Metadata = {
-  title: "Portfolio — Canvas & Brick",
+  title: "Portfolio",
   description:
     "Room by room, category by category — pooja units, kitchens, wardrobes, living rooms and more, from the Canvas & Brick workshop.",
 };
@@ -34,8 +34,8 @@ export default function PortfolioPage() {
         </p>
       </section>
 
-      {galleryCategories.map((c, i) => (
-        <PortfolioSection key={c.id} category={c} index={i} />
+      {galleryCategories.map((c) => (
+        <PortfolioSection key={c.id} category={c} />
       ))}
 
       {/* tail cta */}

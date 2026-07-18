@@ -37,30 +37,40 @@ const V = (f) => `/assets/portfolio/videos/${f}`;
 // category metadata, in portfolio display order
 const meta = [
   { slug:"mandir",   id:"pujamandir", title:"Pooja & Mandir", tag:"Sacred corners",
+    headline:"A Pooja Room For The Soul", subtitle:"Where faith meets craft",
     blurb:"Carved jali, marble and warm brass — quiet corners for prayer, designed with vastu in mind and built to be handed down.",
     video:V("video3_1767961591.mp4") },
   { slug:"living",   id:"living", title:"Living Rooms", tag:"Where the home gathers",
+    headline:"Where The Home Comes Together", subtitle:"Living, beautifully",
     blurb:"Layered lighting, honest materials and seating that pulls a family together — living rooms designed around how you actually live.",
     video:V("catalogue-tab-1.mp4") },
   { slug:"kitchen",  id:"kitchen", title:"Modular Kitchens", tag:"Built for real cooking",
+    headline:"Kitchens Built For Real Life", subtitle:"Where the day begins",
     blurb:"Manufactured in-house to millimetre tolerances. Stone, hardware and finishes chosen for daily Indian cooking, for decades.",
     video:V("catalogue-tab-2.mp4") },
   { slug:"bedroom",  id:"bedroom", title:"Bedrooms", tag:"The quiet rooms",
+    headline:"Bedrooms That Let You Exhale", subtitle:"Rest, redesigned",
     blurb:"Warm veneers, soft light and storage that disappears — bedrooms that feel calm the moment you walk in.",
     video:V("catalogue-tab-3.mp4") },
   { slug:"wardrobe", id:"wardrobe", title:"Wardrobes", tag:"Storage, considered",
+    headline:"A Place For Everything", subtitle:"Wardrobes, engineered",
     blurb:"Sliding, hinged and walk-in — wardrobes engineered around your things, finished the way our family has for fifty years.",
     video:V("catalogue-tab-4.mp4") },
   { slug:"tvunit",   id:"tvunit", title:"TV Units", tag:"The wall that anchors the room",
+    headline:"The Wall Everyone Gathers Around", subtitle:"Media, made beautiful",
     blurb:"Fluted panels, floating consoles and hidden cable runs — media walls that look built-in because they are.",
     video:V("catalogue-tab-5.mp4") },
   { slug:"crockery", id:"crockery", title:"Crockery Units", tag:"Everyday, elevated",
+    headline:"For The Pieces Worth Showing", subtitle:"Everyday, elevated",
     blurb:"Glass, brass and seasoned wood — display and storage for the pieces a family brings out for guests and keeps for good." },
   { slug:"console",  id:"console", title:"Console Units", tag:"First impressions",
+    headline:"The First Hello Of A Home", subtitle:"First impressions, framed",
     blurb:"Slim consoles and entryway pieces that set the tone the moment a door opens." },
   { slug:"balcony",  id:"balcony", title:"Outdoor & Balcony", tag:"Rooms without a roof",
+    headline:"Outdoors & Balcony", subtitle:"Tailored for you",
     blurb:"Decks, terraces and pool-side lounges — outdoor spaces detailed to weather Bengal's seasons and still feel like the studio." },
   { slug:"foyers",   id:"foyers", title:"Foyers", tag:"The threshold",
+    headline:"The Threshold That Sets The Tone", subtitle:"Enter in style",
     blurb:"Jali screens, mirrors and layered brass — entrance foyers that introduce a home before you've fully stepped inside." },
 ];
 
@@ -78,6 +88,10 @@ export type GalleryCategory = {
   id: string;
   title: string;
   tag: string;
+  /** poetic KariGhars-style centered headline */
+  headline: string;
+  /** short line under the headline */
+  subtitle: string;
   blurb: string;
   video?: string;
   images: string[];

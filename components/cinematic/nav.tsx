@@ -5,7 +5,16 @@ import Link from "next/link";
 import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { EASE } from "@/components/motion";
-import { navLinks, site } from "@/lib/content";
+import { site } from "@/lib/content";
+
+const navLinks = [
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Categories", href: "#categories" },
+  { label: "Legacy", href: "#legacy" },
+  { label: "Gallery", href: "#gallery" },
+  { label: "Awards", href: "#awards" },
+  { label: "Contact", href: "#contact" },
+];
 
 export function CNav() {
   const [scrolled, setScrolled] = useState(false);

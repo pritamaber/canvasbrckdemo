@@ -100,8 +100,9 @@ export const legacy = {
     "Canvas & Brick is the modern evolution of Mozammel Haque Timbers — a family business that has supplied, shaped and finished wood in Rajarhat since 1974. Three generations later, the same hands-on standards guide a full interior design studio.",
   image: cin("buddha-foyer.jpg"),
   imageCaption: "Hand-set jali, brass and seasoned veneer — finished in our own workshop",
-  imageE: edi("team.jpg"),
-  imageCaptionE: "The Canvas & Brick studio family — three generations in",
+  imageE: "/assets/portfolio/living/livingroom_010.jpg",
+  imageCaptionE:
+    "A recent Canvas & Brick living room — designed and built in our own workshop",
   timeline: [
     {
       year: "1974",
@@ -593,10 +594,10 @@ export const selectorImages = {
 export const footerLinks = {
   explore: [
     { label: "Legacy", href: "#legacy" },
-    { label: "Projects", href: "#projects" },
-    { label: "Craftsmanship", href: "#craft" },
-    { label: "Estimate", href: "#estimate" },
+    { label: "Portfolio", href: "/portfolio" },
+    { label: "Gallery", href: "#gallery" },
     { label: "FAQ", href: "#faq" },
+    { label: "Contact", href: "#contact" },
   ],
   services: [
     "Turnkey Interiors",
