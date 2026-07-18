@@ -38,6 +38,14 @@ export function CHero() {
               loop
               playsInline
               preload="auto"
+              // skip the slow opening seconds — start the film mid-scene
+              onLoadedMetadata={(e) => {
+                try {
+                  e.currentTarget.currentTime = 4.5;
+                } catch {
+                  /* seeking may fail on some browsers before canplay */
+                }
+              }}
               onError={() => setVideoFailed(true)}
             />
           )}

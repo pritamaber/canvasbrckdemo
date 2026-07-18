@@ -42,13 +42,19 @@ export const site = {
   year: "2026",
 };
 
-export const navLinks = [
-  { label: "Legacy", href: "#legacy" },
-  { label: "Services", href: "#services" },
-  { label: "Projects", href: "#projects" },
-  { label: "Craft", href: "#craft" },
-  { label: "Estimate", href: "#estimate" },
-  { label: "Contact", href: "#contact" },
+/* editorial (Floorsy-style) primary nav — the item flagged `dropdown`
+   renders the Design Ideas mega-menu inline at its Floorsy position */
+export const navLinks: {
+  label: string;
+  href: string;
+  dropdown?: boolean;
+}[] = [
+  { label: "Home", href: "/editorial" },
+  { label: "About Us", href: "/editorial#legacy" },
+  { label: "Design Ideas", href: "/design-ideas", dropdown: true },
+  { label: "Modular Kitchen", href: "/design-ideas/kitchen" },
+  { label: "Catalogue", href: "/catalogue" },
+  { label: "Contact Us", href: "/editorial#contact" },
 ];
 
 export const stats = [

@@ -90,92 +90,95 @@ export function ENav() {
             Canvas <span className="text-sky">&amp;</span> Brick
           </Link>
 
-          <nav className="hidden items-center gap-8 lg:flex">
-            {/* Design Ideas — mega dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setIdeasOpen(true)}
-              onMouseLeave={() => setIdeasOpen(false)}
-            >
-              <Link
-                href="/design-ideas"
-                className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/60 transition-colors duration-300 hover:text-sky"
-                aria-expanded={ideasOpen}
-              >
-                Design Ideas
-                <ChevronDown
-                  size={13}
-                  strokeWidth={2}
-                  className={`transition-transform duration-300 ${
-                    ideasOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </Link>
-
-              <AnimatePresence>
-                {ideasOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.25, ease: EASE }}
-                    className="absolute left-1/2 top-full z-50 w-[44rem] -translate-x-1/2 pt-4"
+          <nav className="hidden items-center gap-7 lg:flex">
+            {navLinks.map((l) =>
+              l.dropdown ? (
+                /* Design Ideas — mega dropdown, in its Floorsy position */
+                <div
+                  key={l.href}
+                  className="relative"
+                  onMouseEnter={() => setIdeasOpen(true)}
+                  onMouseLeave={() => setIdeasOpen(false)}
+                >
+                  <Link
+                    href={l.href}
+                    className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/60 transition-colors duration-300 hover:text-sky"
+                    aria-expanded={ideasOpen}
                   >
-                    <div className="rounded-md border border-forest/10 bg-ivory p-5 shadow-2xl shadow-forest/10">
-                      <div className="mb-4 flex items-center justify-between">
-                        <p className="eyebrow text-fern/70">
-                          Browse ideas by room
-                        </p>
-                        <Link
-                          href="/design-ideas"
-                          className="text-[10px] font-bold uppercase tracking-[0.2em] text-sky transition-colors hover:text-forest"
-                        >
-                          See all →
-                        </Link>
-                      </div>
-                      <div className="grid grid-cols-3 gap-3">
-                        {designIdeas.map((c) => (
-                          <Link
-                            key={c.id}
-                            href={`/design-ideas/${c.slug}`}
-                            className="group flex items-center gap-3 rounded-sm p-2 transition-colors hover:bg-sage-soft/50"
-                          >
-                            <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-sm bg-sage-soft">
-                              {/* eslint-disable-next-line @next/next/no-img-element */}
-                              <img
-                                src={c.images[0]}
-                                alt={c.title}
-                                loading="lazy"
-                                decoding="async"
-                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                              />
-                            </span>
-                            <span>
-                              <span className="block text-[13px] font-bold text-forest transition-colors group-hover:text-sky">
-                                {c.title}
-                              </span>
-                              <span className="block text-[11px] text-charcoal/45">
-                                {c.images.length} designs
-                              </span>
-                            </span>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+                    {l.label}
+                    <ChevronDown
+                      size={13}
+                      strokeWidth={2}
+                      className={`transition-transform duration-300 ${
+                        ideasOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </Link>
 
-            {navLinks.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/60 transition-colors duration-300 hover:text-sky"
-              >
-                {l.label}
-              </a>
-            ))}
+                  <AnimatePresence>
+                    {ideasOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{ duration: 0.25, ease: EASE }}
+                        className="absolute left-1/2 top-full z-50 w-[44rem] -translate-x-1/2 pt-4"
+                      >
+                        <div className="rounded-md border border-forest/10 bg-ivory p-5 shadow-2xl shadow-forest/10">
+                          <div className="mb-4 flex items-center justify-between">
+                            <p className="eyebrow text-fern/70">
+                              Browse ideas by room
+                            </p>
+                            <Link
+                              href="/design-ideas"
+                              className="text-[10px] font-bold uppercase tracking-[0.2em] text-sky transition-colors hover:text-forest"
+                            >
+                              See all →
+                            </Link>
+                          </div>
+                          <div className="grid grid-cols-3 gap-3">
+                            {designIdeas.map((c) => (
+                              <Link
+                                key={c.id}
+                                href={`/design-ideas/${c.slug}`}
+                                className="group flex items-center gap-3 rounded-sm p-2 transition-colors hover:bg-sage-soft/50"
+                              >
+                                <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-sm bg-sage-soft">
+                                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                                  <img
+                                    src={c.images[0]}
+                                    alt={c.title}
+                                    loading="lazy"
+                                    decoding="async"
+                                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                  />
+                                </span>
+                                <span>
+                                  <span className="block text-[13px] font-bold text-forest transition-colors group-hover:text-sky">
+                                    {c.title}
+                                  </span>
+                                  <span className="block text-[11px] text-charcoal/45">
+                                    {c.images.length} designs
+                                  </span>
+                                </span>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/60 transition-colors duration-300 hover:text-sky"
+                >
+                  {l.label}
+                </Link>
+              ),
+            )}
           </nav>
 
           <div className="flex items-center gap-4">
@@ -218,62 +221,69 @@ export function ENav() {
               </button>
             </div>
             <nav className="container-x flex flex-1 flex-col gap-1 overflow-y-auto py-4">
-              {/* Design Ideas accordion */}
-              <button
-                onClick={() => setIdeasOpenM((v) => !v)}
-                aria-expanded={ideasOpenM}
-                className="flex items-center justify-between border-b border-forest/10 py-4 font-serif text-4xl text-forest"
-              >
-                Design Ideas
-                <ChevronDown
-                  size={26}
-                  strokeWidth={1.5}
-                  className={`transition-transform duration-300 ${
-                    ideasOpenM ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              <AnimatePresence initial={false}>
-                {ideasOpenM && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.4, ease: EASE }}
-                    className="overflow-hidden"
-                  >
-                    <div className="grid grid-cols-2 gap-x-6 gap-y-1 py-3">
-                      {designIdeas.map((c) => (
-                        <Link
-                          key={c.id}
-                          href={`/design-ideas/${c.slug}`}
-                          onClick={() => setOpen(false)}
-                          className="flex items-center justify-between border-b border-forest/5 py-2.5 text-sm font-semibold text-charcoal/70"
+              {navLinks.map((l, i) =>
+                l.dropdown ? (
+                  /* Design Ideas accordion */
+                  <div key={l.href}>
+                    <button
+                      onClick={() => setIdeasOpenM((v) => !v)}
+                      aria-expanded={ideasOpenM}
+                      className="flex w-full items-center justify-between border-b border-forest/10 py-4 font-serif text-4xl text-forest"
+                    >
+                      {l.label}
+                      <ChevronDown
+                        size={26}
+                        strokeWidth={1.5}
+                        className={`transition-transform duration-300 ${
+                          ideasOpenM ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {ideasOpenM && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.4, ease: EASE }}
+                          className="overflow-hidden"
                         >
-                          {c.title}
-                          <span className="text-[11px] text-charcoal/35">
-                            {c.images.length}
-                          </span>
-                        </Link>
-                      ))}
-                    </div>
+                          <div className="grid grid-cols-2 gap-x-6 gap-y-1 py-3">
+                            {designIdeas.map((c) => (
+                              <Link
+                                key={c.id}
+                                href={`/design-ideas/${c.slug}`}
+                                onClick={() => setOpen(false)}
+                                className="flex items-center justify-between border-b border-forest/5 py-2.5 text-sm font-semibold text-charcoal/70"
+                              >
+                                {c.title}
+                                <span className="text-[11px] text-charcoal/35">
+                                  {c.images.length}
+                                </span>
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <motion.div
+                    key={l.href}
+                    initial={{ opacity: 0, y: 22 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.05 * i, ease: EASE }}
+                  >
+                    <Link
+                      href={l.href}
+                      onClick={() => setOpen(false)}
+                      className="block border-b border-forest/10 py-4 font-serif text-4xl text-forest transition-colors hover:text-sky"
+                    >
+                      {l.label}
+                    </Link>
                   </motion.div>
-                )}
-              </AnimatePresence>
-
-              {navLinks.map((l, i) => (
-                <motion.a
-                  key={l.href}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  initial={{ opacity: 0, y: 22 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.05 * i, ease: EASE }}
-                  className="border-b border-forest/10 py-4 font-serif text-4xl text-forest transition-colors hover:text-sky"
-                >
-                  {l.label}
-                </motion.a>
-              ))}
+                ),
+              )}
             </nav>
             <div className="container-x pb-10">
               <a

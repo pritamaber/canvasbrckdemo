@@ -5,7 +5,6 @@ import { ELegacy } from "@/components/editorial/legacy";
 import { EWhy } from "@/components/editorial/why";
 import { EServices } from "@/components/editorial/services";
 import { EProjects } from "@/components/editorial/projects";
-import { ECraft } from "@/components/editorial/craft";
 import { EProcess } from "@/components/editorial/process";
 import { EBudget } from "@/components/editorial/budget";
 import { ETestimonials } from "@/components/editorial/testimonials";
@@ -31,7 +30,6 @@ export default function EditorialPage() {
       <ETestimonials />
       <EBudget />
       <EProjects />
-      <ECraft />
       <EProcess />
       <EFaq />
       <ECta />
