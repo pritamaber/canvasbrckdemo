@@ -536,6 +536,41 @@ export const faqs = [
   },
 ];
 
+/* ————————————————————————— press & awards ————————————————————————— */
+
+export const pressLogos = [
+  "Architectural Digest",
+  "Elle Decor India",
+  "Beautiful Homes",
+  "The Telegraph",
+  "Times of India",
+  "Better Interiors",
+  "Design Pataki",
+];
+
+export const awards: { year: string; title: string; body: string }[] = [
+  {
+    year: "2025",
+    title: "Boutique Interior Studio of the Year — East",
+    body: "Eastern India Design Awards, for the Villa Meridian turnkey delivery.",
+  },
+  {
+    year: "2024",
+    title: "Excellence in Modular Manufacturing",
+    body: "IndiaWood Guild, recognising fifty years of in-house woodcraft.",
+  },
+  {
+    year: "2024",
+    title: "Best Residential Project — Kolkata",
+    body: "Bengal Architecture & Interior Forum, The Ivory Residence.",
+  },
+  {
+    year: "2023",
+    title: "Sustainable Materials Commendation",
+    body: "Green Interiors Council, for low-VOC finishes and honest sourcing.",
+  },
+];
+
 /* ————————————————————————— cta ————————————————————————— */
 
 export const cta = {

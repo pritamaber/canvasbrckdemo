@@ -1,0 +1,68 @@
+improvement / fixes for cinematic
+
+just below hero remove legacy , I want to make it similar like karighars , 
+after hero they have full bleed video for categories
+
+puja section 
+on clicking the puja section it takes to thekarighars.com/interior-design-portfolio/#pujamandir
+
+outdoor and balcony section 
+thekarighars.com/interior-design-portfolio/#balcony
+
+bathing section
+for bathrooms interior
+
+bedroom section
+for bedrooms
+
+kitchen section
+
+living rooms section
+
+foyers section
+
+then they put their legacy , 
+best interior design in Bengaluru and all
+
+then gallery section
+
+customer testimonial
+
+featured in section
+
+award section
+
+faq 
+
+then footer
+
+this thekarighars.com/interior-design-portfolio
+
+in every section of this there are multiple full bleed video or swipable images make it like that take the images from local folder stated in the end
+
+
+
+improvement / fixes for editorial
+
+in the hero section put the big text over the video not above or under it .
+
+remove the legacy from under hero , legacy will be put later
+
+then service we are offering cards
+
+then legacy
+
+client testimony 
+pricing
+
+design ideas in navbar which will hold 9 dropdowns 
+bedroom , kitchen , livingroom , bathroom , wardrobe, mandir, tv unit, etc
+
+each of them will have 10-50 design images for customers to choose
+
+
+
+the images and videos are here D:\canvasbrickdemoimages all the images and vides are inside separate folders here ... use this images
+
+
+
