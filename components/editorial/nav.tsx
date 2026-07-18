@@ -3,19 +3,85 @@
 import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Mail, Menu, Phone, X } from "lucide-react";
 import { EASE } from "@/components/motion";
 import { navLinks, site } from "@/lib/content";
+
+const socials = [
+  { label: "Instagram", tag: "Ig" },
+  { label: "Facebook", tag: "Fb" },
+  { label: "LinkedIn", tag: "In" },
+  { label: "YouTube", tag: "Yt" },
+];
 
 export function ENav() {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-[60] border-b border-charcoal/8 bg-ivory/85 backdrop-blur-md">
+      {/* ————— olive utility bar (scrolls away, desktop only) ————— */}
+      <div className="hidden bg-forest text-ivory md:block">
+        <div className="container-x flex h-11 items-center justify-between gap-6">
+          <div className="flex items-center gap-8">
+            <a
+              href={site.phoneHref}
+              className="flex items-center gap-2.5 transition-colors hover:text-sky-soft"
+            >
+              <Phone size={15} strokeWidth={1.6} className="text-sage" />
+              <span className="text-[12px] leading-tight">
+                <span className="block text-[9px] font-bold uppercase tracking-[0.22em] text-ivory/50">
+                  Call any time
+                </span>
+                {site.phone}
+              </span>
+            </a>
+            <a
+              href={`mailto:${site.email}`}
+              className="flex items-center gap-2.5 transition-colors hover:text-sky-soft"
+            >
+              <Mail size={15} strokeWidth={1.6} className="text-sage" />
+              <span className="text-[12px] leading-tight">
+                <span className="block text-[9px] font-bold uppercase tracking-[0.22em] text-ivory/50">
+                  Send email
+                </span>
+                {site.email}
+              </span>
+            </a>
+          </div>
+
+          <div className="flex items-center gap-5">
+            <a
+              href="#estimate"
+              className="rounded-sm bg-sage-soft px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-forest transition-colors duration-300 hover:bg-sky-soft"
+            >
+              Budget Calculator
+            </a>
+            <span className="hidden items-center gap-2 lg:flex">
+              <span className="text-[9px] font-bold uppercase tracking-[0.22em] text-ivory/50">
+                Follow
+              </span>
+              {socials.map((s) => (
+                <span
+                  key={s.label}
+                  aria-label={s.label}
+                  className="grid h-7 w-7 cursor-pointer place-items-center rounded-full border border-ivory/25 text-[9px] font-bold text-ivory/80 transition-colors duration-300 hover:border-sky-soft hover:bg-sky-soft hover:text-forest"
+                >
+                  {s.tag}
+                </span>
+              ))}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* ————— sticky cream nav ————— */}
+      <header className="sticky top-0 z-[60] border-b border-forest/10 bg-ivory/90 backdrop-blur-md">
         <div className="container-x flex h-[4.5rem] items-center justify-between">
-          <Link href="/editorial" className="font-serif text-[1.4rem] text-charcoal">
-            Canvas <span className="text-walnut">&amp;</span> Brick
+          <Link
+            href="/editorial"
+            className="font-serif text-[1.4rem] text-forest"
+          >
+            Canvas <span className="text-sky">&amp;</span> Brick
           </Link>
 
           <nav className="hidden items-center gap-8 lg:flex">
@@ -23,7 +89,7 @@ export function ENav() {
               <a
                 key={l.href}
                 href={l.href}
-                className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55 transition-colors duration-300 hover:text-charcoal"
+                className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/60 transition-colors duration-300 hover:text-sky"
               >
                 {l.label}
               </a>
@@ -33,14 +99,14 @@ export function ENav() {
           <div className="flex items-center gap-4">
             <a
               href="#contact"
-              className="hidden rounded-full bg-charcoal px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-ivory transition-colors duration-300 hover:bg-walnut sm:block"
+              className="hidden rounded-full bg-sky px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-ivory transition-colors duration-300 hover:bg-forest sm:block"
             >
               Book Consultation
             </a>
             <button
               aria-label="Open menu"
               onClick={() => setOpen(true)}
-              className="grid h-10 w-10 place-items-center text-charcoal lg:hidden"
+              className="grid h-10 w-10 place-items-center text-forest lg:hidden"
             >
               <Menu size={22} strokeWidth={1.5} />
             </button>
@@ -58,13 +124,13 @@ export function ENav() {
             className="fixed inset-0 z-[80] flex flex-col bg-ivory"
           >
             <div className="container-x flex h-[4.5rem] items-center justify-between">
-              <p className="font-serif text-[1.4rem] text-charcoal">
-                Canvas <span className="text-walnut">&amp;</span> Brick
+              <p className="font-serif text-[1.4rem] text-forest">
+                Canvas <span className="text-sky">&amp;</span> Brick
               </p>
               <button
                 aria-label="Close menu"
                 onClick={() => setOpen(false)}
-                className="grid h-10 w-10 place-items-center text-charcoal"
+                className="grid h-10 w-10 place-items-center text-forest"
               >
                 <X size={22} strokeWidth={1.5} />
               </button>
@@ -78,14 +144,21 @@ export function ENav() {
                   initial={{ opacity: 0, y: 22 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.08 * i, ease: EASE }}
-                  className="border-b border-charcoal/10 py-4 font-serif text-4xl text-charcoal transition-colors hover:text-walnut"
+                  className="border-b border-forest/10 py-4 font-serif text-4xl text-forest transition-colors hover:text-sky"
                 >
                   {l.label}
                 </motion.a>
               ))}
             </nav>
             <div className="container-x pb-10">
-              <p className="text-sm text-charcoal/60">{site.phone}</p>
+              <a
+                href="#estimate"
+                onClick={() => setOpen(false)}
+                className="inline-block rounded-full bg-sky px-6 py-3 text-[11px] font-bold uppercase tracking-[0.2em] text-ivory"
+              >
+                Budget Calculator
+              </a>
+              <p className="mt-5 text-sm text-charcoal/60">{site.phone}</p>
               <p className="mt-1 text-sm text-charcoal/60">{site.email}</p>
             </div>
           </motion.div>

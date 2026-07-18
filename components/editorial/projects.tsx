@@ -13,7 +13,7 @@ export function EProjects() {
     filter === "All" ? projects : projects.filter((p) => p.category === filter);
 
   return (
-    <section id="projects" className="bg-linen/50 py-24 scroll-mt-16 md:py-36">
+    <section id="projects" className="bg-sage-soft/40 py-24 scroll-mt-16 md:py-36">
       <div className="container-x">
         <ESectionHeader
           number="04"
@@ -32,8 +32,8 @@ export function EProjects() {
                 onClick={() => setFilter(c)}
                 className={`rounded-full border px-4.5 py-2 text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300 ${
                   active
-                    ? "border-charcoal bg-charcoal text-ivory"
-                    : "border-charcoal/20 text-charcoal/55 hover:border-charcoal/50 hover:text-charcoal"
+                    ? "border-fern bg-fern text-ivory"
+                    : "border-fern/25 text-charcoal/55 hover:border-fern/50 hover:text-fern"
                 }`}
               >
                 {c}
@@ -69,7 +69,7 @@ export function EProjects() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   <div className="absolute inset-x-0 bottom-0 translate-y-4 p-5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                    <p className="text-[9px] font-bold uppercase tracking-[0.26em] text-brass-soft">
+                    <p className="text-[9px] font-bold uppercase tracking-[0.26em] text-sky-soft">
                       {p.category}
                     </p>
                     <p className="mt-1 font-serif text-xl text-ivory">
@@ -79,7 +79,7 @@ export function EProjects() {
                 </div>
                 <figcaption className="mt-3.5 flex items-baseline justify-between gap-4">
                   <div>
-                    <p className="text-sm font-bold text-charcoal">{p.name}</p>
+                    <p className="text-sm font-bold text-forest">{p.name}</p>
                     <p className="mt-0.5 text-xs text-charcoal/50">
                       {p.location} · {p.scope}
                     </p>

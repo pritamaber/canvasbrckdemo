@@ -10,6 +10,7 @@ import { EProcess } from "@/components/editorial/process";
 import { EBudget } from "@/components/editorial/budget";
 import { ETestimonials } from "@/components/editorial/testimonials";
 import { EFaq, ECta } from "@/components/editorial/faq-cta";
+import { EEnquireTab } from "@/components/editorial/enquire-tab";
 import { SiteFooter } from "@/components/site-footer";
 import { VariantSwitch } from "@/components/variant-switch";
 
@@ -35,6 +36,7 @@ export default function EditorialPage() {
       <EFaq />
       <ECta />
       <SiteFooter />
+      <EEnquireTab />
       <VariantSwitch />
     </main>
   );

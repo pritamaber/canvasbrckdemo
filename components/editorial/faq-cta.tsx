@@ -10,35 +10,35 @@ export function EFaq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-linen/50 py-24 scroll-mt-16 md:py-36">
+    <section id="faq" className="bg-sky-wash/50 py-24 scroll-mt-16 md:py-36">
       <div className="container-x max-w-4xl">
         <Reveal className="text-center">
-          <p className="eyebrow flex items-baseline justify-center gap-3 text-charcoal/45">
-            <span className="font-serif text-base italic text-walnut">09</span>
+          <p className="eyebrow flex items-baseline justify-center gap-3 text-fern/80">
+            <span className="font-serif text-base italic text-sky">09</span>
             — Questions, answered
           </p>
-          <h2 className="mt-5 font-serif text-4xl leading-tight text-charcoal sm:text-5xl">
+          <h2 className="grad-head mt-5 font-serif text-4xl leading-tight sm:text-5xl">
             The honest details.
           </h2>
         </Reveal>
 
-        <div className="mt-12 border-t border-charcoal/10">
+        <div className="mt-12 border-t border-fern/12">
           {faqs.map((f, i) => {
             const isOpen = open === i;
             return (
-              <div key={f.q} className="border-b border-charcoal/10">
+              <div key={f.q} className="border-b border-fern/12">
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
                   aria-expanded={isOpen}
                   className="flex w-full items-center justify-between gap-6 py-6 text-left"
                 >
-                  <span className="font-serif text-lg text-charcoal sm:text-xl">
+                  <span className="font-serif text-lg text-forest sm:text-xl">
                     {f.q}
                   </span>
                   <motion.span
                     animate={{ rotate: isOpen ? 45 : 0 }}
                     transition={{ duration: 0.35, ease: EASE }}
-                    className="shrink-0 text-walnut"
+                    className="shrink-0 text-sky"
                   >
                     <Plus size={20} strokeWidth={1.5} />
                   </motion.span>
@@ -69,10 +69,10 @@ export function EFaq() {
 
 export function ECta() {
   return (
-    <section id="contact" className="bg-charcoal py-24 scroll-mt-16 md:py-36">
+    <section id="contact" className="bg-forest py-24 scroll-mt-16 md:py-36">
       <div className="container-x grid gap-16 lg:grid-cols-[1.4fr_1fr] lg:gap-24">
         <Reveal>
-          <p className="eyebrow text-brass-soft">Begin the conversation</p>
+          <p className="eyebrow text-sky-soft">Begin the conversation</p>
           <h2 className="mt-6 max-w-xl font-serif text-5xl leading-[1.05] text-ivory sm:text-6xl">
             {cta.heading}
           </h2>
@@ -84,7 +84,7 @@ export function ECta() {
               href={site.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 rounded-full bg-brass px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-ink transition-colors duration-300 hover:bg-brass-soft"
+              className="inline-flex items-center gap-2.5 rounded-full bg-sky px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-ivory transition-colors duration-300 hover:bg-sky-soft hover:text-forest"
             >
               <MessageCircle size={15} />
               {cta.primary}
@@ -110,7 +110,7 @@ export function ECta() {
                 <c.icon
                   size={17}
                   strokeWidth={1.5}
-                  className="mt-0.5 shrink-0 text-brass"
+                  className="mt-0.5 shrink-0 text-sky-soft"
                 />
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-[0.26em] text-ivory/40">

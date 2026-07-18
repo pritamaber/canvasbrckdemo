@@ -11,11 +11,11 @@ export function ELegacy() {
         {/* sticky intro */}
         <div className="lg:sticky lg:top-32 lg:self-start">
           <Reveal>
-            <p className="eyebrow flex items-baseline gap-3 text-charcoal/45">
-              <span className="font-serif text-base italic text-walnut">01</span>
+            <p className="eyebrow flex items-baseline gap-3 text-fern/80">
+              <span className="font-serif text-base italic text-sky">01</span>
               — Our legacy
             </p>
-            <h2 className="mt-5 font-serif text-4xl leading-[1.08] text-charcoal sm:text-5xl">
+            <h2 className="grad-head mt-5 font-serif text-4xl leading-[1.08] sm:text-5xl">
               From a timber yard in Rajarhat to Eastern India’s most considered
               interiors.
             </h2>
@@ -25,7 +25,7 @@ export function ELegacy() {
           </Reveal>
 
           <Reveal delay={0.15} className="relative mt-12 max-w-sm">
-            <div className="absolute -bottom-4 -right-4 h-full w-full bg-sand" />
+            <div className="absolute -bottom-4 -right-4 h-full w-full bg-sage-soft" />
             <div className="relative aspect-[4/5] overflow-hidden">
               <Image
                 src={legacy.imageE}
@@ -42,11 +42,11 @@ export function ELegacy() {
         </div>
 
         {/* timeline */}
-        <div className="relative border-l border-charcoal/15 pl-10 sm:pl-14 lg:mt-10">
+        <div className="relative border-l border-fern/20 pl-10 sm:pl-14 lg:mt-10">
           {legacy.timeline.map((t, i) => (
             <Reveal key={t.year} delay={0.08 * i} className="relative pb-16 last:pb-0">
-              <span className="absolute -left-[45px] top-4 h-2.5 w-2.5 rounded-full bg-brass sm:-left-[61px]" />
-              <p className="font-serif text-5xl text-walnut sm:text-6xl">
+              <span className="absolute -left-[45px] top-4 h-2.5 w-2.5 rounded-full bg-sky sm:-left-[61px]" />
+              <p className="font-serif text-5xl text-fern sm:text-6xl">
                 {t.year}
               </p>
               <p className="mt-3 text-xs font-bold uppercase tracking-[0.24em] text-charcoal">

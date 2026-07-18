@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Check, MessageCircle } from "lucide-react";
 import { EASE, Reveal } from "@/components/motion";
 import {
@@ -10,6 +10,7 @@ import {
   calcEstimate,
   defaultScope,
   formatLakh,
+  formatStartingLakh,
   packageOptions,
   scopeItems,
   whatsappQuoteHref,
@@ -78,29 +79,24 @@ export function CBudget() {
           <Reveal className="relative self-start lg:sticky lg:top-28">
             <div className="absolute -left-4 -top-4 h-full w-full border border-brass/25" />
             <div className="relative aspect-[4/5] overflow-hidden">
-              <AnimatePresence mode="popLayout">
-                <motion.div
-                  key={bhk.imagesC[slide]}
-                  initial={{ opacity: 0, scale: 1.04 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 1.1, ease: EASE }}
-                  className="absolute inset-0"
-                >
-                  <Image
-                    src={bhk.imagesC[slide]}
-                    alt={`${bhk.label} interior by Canvas & Brick`}
-                    fill
-                    sizes="(min-width: 1024px) 42vw, 100vw"
-                    className="object-cover"
-                  />
-                </motion.div>
-              </AnimatePresence>
+              {/* CSS crossfade — all slides stay mounted, active one on top */}
+              {bhk.imagesC.map((src, i) => (
+                <Image
+                  key={src}
+                  src={src}
+                  alt={`${bhk.label} interior by Canvas & Brick`}
+                  fill
+                  sizes="(min-width: 1024px) 42vw, 100vw"
+                  className={`object-cover transition-opacity duration-1000 ease-out ${
+                    i === slide ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              ))}
               <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5">
                 <p className="font-serif text-3xl text-ivory">{bhk.label}</p>
                 <p className="mt-1 text-[11px] font-bold uppercase tracking-[0.22em] text-brass-soft">
-                  Starting from {formatLakh(bhk.startingLakh)}*
+                  Starting from {formatStartingLakh(bhk.startingLakh)}*
                 </p>
               </div>
               <div className="absolute bottom-6 right-5 flex gap-1.5">
@@ -250,20 +246,17 @@ export function CBudget() {
                 <p className="text-[10px] font-bold uppercase tracking-[0.26em] text-ivory/40">
                   Your indicative range
                 </p>
-                <AnimatePresence mode="wait">
-                  <motion.p
-                    key={`${est.lowLakh.toFixed(1)}-${est.highLakh.toFixed(1)}`}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -6 }}
-                    transition={{ duration: 0.45, ease: EASE }}
-                    className="mt-3 font-serif text-5xl text-brass-soft sm:text-6xl"
-                  >
-                    {formatLakh(est.lowLakh)}{" "}
-                    <span className="text-ivory/40">–</span>{" "}
-                    {formatLakh(est.highLakh)}
-                  </motion.p>
-                </AnimatePresence>
+                <motion.p
+                  key={`${est.lowLakh.toFixed(1)}-${est.highLakh.toFixed(1)}`}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, ease: EASE }}
+                  className="mt-3 font-serif text-5xl text-brass-soft sm:text-6xl"
+                >
+                  {formatLakh(est.lowLakh)}{" "}
+                  <span className="text-ivory/40">–</span>{" "}
+                  {formatLakh(est.highLakh)}
+                </motion.p>
 
                 {/* breakdown */}
                 <div className="mt-8 space-y-3">

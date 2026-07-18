@@ -2,7 +2,25 @@
 
 import { Reveal } from "@/components/motion";
 
-/** Numbered magazine-style section header used across the editorial direction. */
+/** Floorsy-style decorative diamond rule: ◆──◇◆◇──◆ */
+export function Diamond({ className = "" }: { className?: string }) {
+  return (
+    <span
+      aria-hidden
+      className={`flex items-center justify-center gap-1.5 ${className}`}
+    >
+      <span className="h-px w-12 bg-gradient-to-r from-transparent to-fern/45 sm:w-16" />
+      <span className="h-1 w-1 rotate-45 bg-gold/70" />
+      <span className="h-1.5 w-1.5 rotate-45 border border-fern/50" />
+      <span className="h-2 w-2 rotate-45 bg-fern/70" />
+      <span className="h-1.5 w-1.5 rotate-45 border border-fern/50" />
+      <span className="h-1 w-1 rotate-45 bg-gold/70" />
+      <span className="h-px w-12 bg-gradient-to-l from-transparent to-fern/45 sm:w-16" />
+    </span>
+  );
+}
+
+/** Centred, gradient magazine header — the Floorsy signature look. */
 export function ESectionHeader({
   number,
   label,
@@ -15,25 +33,21 @@ export function ESectionHeader({
   intro?: string;
 }) {
   return (
-    <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
-      <Reveal>
-        <p className="eyebrow flex items-baseline gap-3 text-charcoal/45">
-          <span className="font-serif text-base italic text-walnut">
-            {number}
-          </span>
-          — {label}
-        </p>
-        <h2 className="mt-5 max-w-2xl font-serif text-4xl leading-[1.08] text-charcoal sm:text-5xl">
-          {heading}
-        </h2>
-      </Reveal>
+    <Reveal className="mx-auto max-w-3xl text-center">
+      <p className="eyebrow flex items-center justify-center gap-2.5 text-fern/80">
+        <span className="font-serif text-base italic text-sky">{number}</span>
+        <span className="h-px w-5 bg-fern/40" />
+        {label}
+      </p>
+      <h2 className="grad-head mt-5 font-serif text-4xl leading-[1.08] sm:text-5xl">
+        {heading}
+      </h2>
+      <Diamond className="mx-auto mt-7" />
       {intro && (
-        <Reveal delay={0.15}>
-          <p className="max-w-sm text-sm leading-relaxed text-charcoal/55">
-            {intro}
-          </p>
-        </Reveal>
+        <p className="mx-auto mt-7 max-w-xl text-[15px] leading-relaxed text-charcoal/60">
+          {intro}
+        </p>
       )}
-    </div>
+    </Reveal>
   );
 }

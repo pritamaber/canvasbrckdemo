@@ -17,7 +17,7 @@ export function ETestimonials() {
       <div className="container-x max-w-5xl text-center">
         <Reveal>
           <p className="eyebrow flex items-baseline justify-center gap-3 text-charcoal/45">
-            <span className="font-serif text-base italic text-walnut">08</span>
+            <span className="font-serif text-base italic text-sky">08</span>
             — Client words
           </p>
         </Reveal>
@@ -35,7 +35,7 @@ export function ETestimonials() {
                 “{t.quote}”
               </blockquote>
               <figcaption className="mt-8">
-                <p className="text-xs font-bold uppercase tracking-[0.22em] text-walnut">
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-fern">
                   {t.name}
                 </p>
                 <p className="mt-1.5 text-xs text-charcoal/50">{t.meta}</p>
@@ -59,7 +59,7 @@ export function ETestimonials() {
                 aria-label={`Go to testimonial ${i + 1}`}
                 onClick={() => setIndex(i)}
                 className={`h-1.5 rounded-full transition-all duration-500 ${
-                  i === index ? "w-7 bg-brass" : "w-1.5 bg-charcoal/20"
+                  i === index ? "w-7 bg-sky" : "w-1.5 bg-fern/25"
                 }`}
               />
             ))}

@@ -30,7 +30,7 @@ export function ECraft() {
                   />
                 </div>
                 <figcaption className="mt-4">
-                  <p className="text-sm font-bold text-charcoal">{m.name}</p>
+                  <p className="text-sm font-bold text-forest">{m.name}</p>
                   <p className="mt-1 text-xs leading-relaxed text-charcoal/50">
                     {m.note}
                   </p>
@@ -62,14 +62,14 @@ export function ECraft() {
 
         {/* pull quote */}
         <Reveal className="mx-auto mt-24 max-w-2xl text-center">
-          <span className="mx-auto block h-10 w-px bg-brass" />
-          <blockquote className="mt-8 font-serif text-2xl italic leading-snug text-walnut sm:text-3xl">
+          <span className="mx-auto block h-10 w-px bg-sky" />
+          <blockquote className="mt-8 font-serif text-2xl italic leading-snug text-fern sm:text-3xl">
             {craft.quote}
           </blockquote>
           <p className="eyebrow mt-6 text-charcoal/45">
             {craft.quoteAttribution}
           </p>
-          <span className="mx-auto mt-8 block h-10 w-px bg-brass" />
+          <span className="mx-auto mt-8 block h-10 w-px bg-sky" />
         </Reveal>
       </div>
     </section>

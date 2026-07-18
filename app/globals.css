@@ -13,6 +13,18 @@
   --color-brass: #b08d57;
   --color-brass-soft: #cfb488;
 
+  /* Editorial — Floorsy-inspired green / sky / blush accents */
+  --color-forest: #3b4a2b;
+  --color-fern: #566b39;
+  --color-sage: #869566;
+  --color-sage-soft: #dce2cc;
+  --color-sky: #4d8fb1;
+  --color-sky-soft: #a6cbe0;
+  --color-sky-wash: #e3eef4;
+  --color-blush: #d99a8b;
+  --color-blush-soft: #f2ddd6;
+  --color-gold: #b58f43;
+
   --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -62,6 +74,19 @@ body {
     letter-spacing: 0.32em;
     text-transform: uppercase;
     font-weight: 600;
+  }
+
+  /* Floorsy-style gradient display heading (green → gold → green) */
+  .grad-head {
+    background-image: linear-gradient(
+      100deg,
+      var(--color-fern) 0%,
+      var(--color-gold) 50%,
+      var(--color-fern) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 }
 

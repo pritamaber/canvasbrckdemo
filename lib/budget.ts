@@ -155,6 +155,9 @@ export const formatLakh = (lakh: number) =>
     ? `₹${(lakh / 100).toFixed(2)} Cr`
     : `₹${lakh.toFixed(lakh < 10 ? 2 : 1)}L`;
 
+/** ladder prices keep their Floorsy-style paisa precision: ₹9.99L */
+export const formatStartingLakh = (lakh: number) => `₹${lakh.toFixed(2)}L`;
+
 export function whatsappQuoteHref(
   bhk: BhkOption,
   pkg: PackageOption,

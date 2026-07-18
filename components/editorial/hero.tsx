@@ -11,17 +11,17 @@ export function EHero() {
   const [videoFailed, setVideoFailed] = useState(false);
 
   return (
-    <section className="pt-[4.5rem]">
-      <div className="container-x pb-16 pt-12 sm:pt-16">
+    <section>
+      <div className="container-x pb-16 pt-10 sm:pt-14">
         {/* meta row */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.1 }}
-          className="flex items-center justify-between gap-6 border-b border-charcoal/10 pb-5"
+          className="flex items-center justify-between gap-6 border-b border-fern/15 pb-5"
         >
-          <p className="eyebrow text-charcoal/50">{heroEditorial.metaLeft}</p>
-          <p className="eyebrow text-walnut">{heroEditorial.metaRight}</p>
+          <p className="eyebrow text-fern/70">{heroEditorial.metaLeft}</p>
+          <p className="eyebrow text-sky">{heroEditorial.metaRight}</p>
         </motion.div>
 
         {/* headline */}
@@ -33,7 +33,7 @@ export function EHero() {
             heroEditorial.titleA,
             <span key="b">
               {heroEditorial.titleB}{" "}
-              <em className="text-walnut">{heroEditorial.titleItalic}</em>
+              <em className="grad-head">{heroEditorial.titleItalic}</em>
             </span>,
           ]}
         />
@@ -56,7 +56,7 @@ export function EHero() {
           >
             <a
               href="#contact"
-              className="rounded-full bg-charcoal px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-ivory transition-colors duration-300 hover:bg-walnut"
+              className="rounded-full bg-sky px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-ivory transition-colors duration-300 hover:bg-forest"
             >
               Book Consultation
             </a>
@@ -123,14 +123,14 @@ export function EHero() {
       </div>
 
       {/* stats band */}
-      <div className="border-y border-charcoal/10 bg-linen/60">
+      <div className="border-y border-fern/15 bg-sage-soft/50">
         <div className="container-x grid grid-cols-2 gap-y-10 py-12 md:grid-cols-4">
           {stats.map((s) => (
             <div key={s.label}>
               <Counter
                 to={s.value}
                 suffix={s.suffix}
-                className="font-serif text-4xl text-walnut sm:text-5xl"
+                className="grad-head font-serif text-4xl sm:text-5xl"
               />
               <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-charcoal/45">
                 {s.label}
