@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  /* Canvas & Brick — palette */
+  --color-ivory: #f5f1ea;
+  --color-linen: #ede7db;
+  --color-sand: #ddd2bd;
+  --color-taupe: #9a8c76;
+  --color-walnut: #6e5138;
+  --color-umber: #2e2821;
+  --color-charcoal: #1f1b16;
+  --color-ink: #141110;
+  --color-brass: #b08d57;
+  --color-brass-soft: #cfb488;
+
+  --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@theme inline {
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, -apple-system,
+    sans-serif;
+  --font-serif: var(--font-instrument), Georgia, "Times New Roman", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-brass);
+  color: var(--color-ink);
+}
+
+@layer components {
+  .container-x {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 84rem;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .container-x {
+      padding-inline: 2.5rem;
+    }
+  }
+  @media (min-width: 1100px) {
+    .container-x {
+      padding-inline: 3.5rem;
+    }
+  }
+
+  .eyebrow {
+    font-size: 0.6875rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee-x 48s linear infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 1s var(--ease-lux) both;
+}
